@@ -255,24 +255,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(operator == getString(R.string.Divide)){
             num1 = String.valueOf(Double.parseDouble(num) / Double.parseDouble(tvDisplay.getText().toString()));
-            tvDisplay.setText(num1.toString());
+            tvDisplay.setText(checkDouble(num1));
             num = num1;
             num1 = null;
         } else if(operator == getString(R.string.Plus)){
             num1 = String.valueOf(Double.parseDouble(num) + Double.parseDouble(tvDisplay.getText().toString()));
-            tvDisplay.setText(num1.toString());
+            tvDisplay.setText(checkDouble(num1));
             num = num1;
             num1 = null;
         } else if(operator == getString(R.string.Minus)){
             num1 = String.valueOf(Double.parseDouble(num) - Double.parseDouble(tvDisplay.getText().toString()));
-            tvDisplay.setText(num1.toString());
+            tvDisplay.setText(checkDouble(num1));
             num = num1;
             num1 = null;
         }else if(operator == getString(R.string.Multiply)){
             num1 = String.valueOf(Double.parseDouble(num) * Double.parseDouble(tvDisplay.getText().toString()));
-            tvDisplay.setText(num1.toString());
+            tvDisplay.setText(checkDouble(num1));
             num = num1;
             num1 = null;
         }
+    }
+
+    public String checkDouble(String num){
+
+        if(Double.parseDouble(num) % 1 == 0)
+            return String.valueOf(((int) Double.parseDouble(num)));
+
+        return num;
     }
 }
